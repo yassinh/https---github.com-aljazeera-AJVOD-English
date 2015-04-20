@@ -1,0 +1,30 @@
+// Background player component
+
+.bgplayer {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.bgplayer-fallback {
+  @include position(absolute, 0px 0 0 0px);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-position: top center;
+  background-size: cover;
+
+  /* The url is relative to the document, not to the css file! */
+  /* Prefer absolute urls to avoid confusion. */
+  /* -ms-behavior: url(backgroundsize.min.htc); */
+}

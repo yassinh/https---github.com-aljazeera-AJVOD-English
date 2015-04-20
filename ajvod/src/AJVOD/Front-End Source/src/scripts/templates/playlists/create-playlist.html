@@ -1,0 +1,12 @@
+<a href="#" class="h-icon-close" title="<%= localization.close_text %>"><%= localization.close_text %></a>
+
+<h1><%= localization.playlist_create_dialog_title %></h1>
+
+<% if(reachedMax) { %>
+  <p class="max"><%= localization.playlist_max %></p>
+<% } else { %>
+  <form class="playlist-create-form">
+    <input type="text" name="name" autofocus>
+    <a href="#" class="submit is-disabled"><%= localization.playlist_create %></a>
+  </form>
+<% } %>

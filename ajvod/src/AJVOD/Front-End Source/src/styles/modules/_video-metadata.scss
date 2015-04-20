@@ -1,0 +1,84 @@
+// Video details / metadata container
+// These exist in many permutations, but these
+// are the base styles.
+
+.thumb {
+  display: block;
+  position: relative;
+}
+
+.details {
+  .title {
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0 0 5px 0;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .date, .show {
+    font-size: 10px;
+    margin: 3px 0;
+	font-family:arial;
+  }
+
+  .date {
+    color: $grey-c;
+    font-size: 11px;
+    margin: 5px 0;
+	font-family:arial;
+    span {
+      margin-right: 10px;
+      
+      .is-rtl & {
+        float: right;
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .show {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    padding: 2px 4px;
+    position: relative;
+    left: -4px;
+    color: $item-show-link-color;
+    background-color: $item-show-link-background-color;
+    font-weight: bold;
+
+    .is-rtl & {
+      left: auto;
+      right: -4px;
+    }
+
+    &.light {
+      @include transition(all 0.05s ease-in-out);
+      background-color: transparent;
+      color: $white-a-dp;
+
+      &:hover {
+        background-color: $grey-d-dp;
+        color: $grey-a-dp;
+      }
+    }
+  }
+
+  .desc {
+    margin: 15px 0;
+    font-size: 13px;
+  }
+
+  .topics {
+    margin: 15px 0;
+    font-size: 11px;
+  }
+
+  .divider {
+    color: $grey-c;
+  }
+}

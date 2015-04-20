@@ -1,0 +1,47 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script async src="//admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+  <script async src="//admin.brightcove.com/js/APIModules_all.js"></script>
+  <script src="scripts/page-events.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" type="text/css" href="styles/events.css">
+{/styles}
+
+{! main content !}
+{<main}
+  <div id="main">
+    <div class="top">
+      <div class="h-content">
+        <h1>Events</h1>
+        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured.</p>
+        {>"partials/pagination" action="/some-action/" hasSort="false" hasLinks="false"/}
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="h-content">
+        <ul class="grid left">
+          {#items group="0"}
+            <li class="{@if cond="{$idx} === 0 || ({$idx} % 6 === 0)"} first-child is-promo{/if}">
+              {@if cond="{$idx} === 0 || ({$idx} % 6 === 0)"}
+                {>"partials/item-event" hasDescription="true"/}
+              {:else}
+                {>"partials/item-event"/}
+              {/if}
+            </li>
+
+            {@if cond="({$idx} + 1) % 6 == 0"}
+              </ul>
+              <ul class="grid right">
+            {/if}
+          {/items}
+        </ul>
+      </div>
+    </div>
+  </div>
+{/main}

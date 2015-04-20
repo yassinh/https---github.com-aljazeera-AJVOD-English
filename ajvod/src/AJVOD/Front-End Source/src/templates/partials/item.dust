@@ -1,0 +1,45 @@
+{!
+  If you update this file, please also check
+  templates/yourchannel/recommendations.html
+
+  * data-index - the loop index of this video
+  * data-date - publish date
+  * data-views - number of views
+  * data-playlist-id - ID of the playlist if this video belongs to one
+  * data-playlist-name - name of the playlist if this video belongs to one
+!}
+
+<!-- BEGIN: div.item -->
+{@if cond="'{hasSortAttributes}' == 'true'"}
+  <div class="item" data-video-id="{videoID}" data-index="{$idx}" data-date="{date}" data-views="{views}" data-playlist-id="123" data-playlist-name="test playlist">
+{:else}
+  <div class="item" data-video-id="{videoID}" data-playlist-id="123" data-playlist-name="test playlist">
+{/if}
+  <div class="tooltip">
+    <div class="details">
+      <p class="title">{title}</p>
+      <p class="desc">{description}</p>
+    </div>
+  </div>
+  <a href="#" class="h-icon h-icon-playlist-add do-playlist-add" title="Add to Playlist">Add to Playlist</a>
+  <a href="#" class="h-icon h-icon-playlist-remove do-playlist-remove h-hidden" title="Remove from Playlist">Remove from Playlist</a>
+  <a class="thumb" href="#">
+    {@if cond="'{lazyload}' == 'true'"}
+      <img data-src="http://placeimg.com/500/280/any" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+    {:else}
+      <img src="http://placeimg.com/500/280/any" alt="">
+    {/if}
+  </a>
+  <div class="details">
+    <a class="title" href="#">{title}</a>
+    {@if cond="'{hasDescription}' == 'true'"}
+      <p class="desc">{description}</p>
+    {/if}
+    <p class="date"><span>01:12</span>Oct 16, 2013</p>
+  </div>
+  <p class="footer">
+    <a href="#" class="h-icon h-icon-play"></a>
+    <a href="#">101 East</a>
+  </p>
+</div>
+<!-- END div.item -->

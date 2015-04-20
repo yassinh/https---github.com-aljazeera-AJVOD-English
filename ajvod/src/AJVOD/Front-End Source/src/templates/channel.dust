@@ -1,0 +1,34 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script src="scripts/page-channel.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" href="styles/channel.css">
+{/styles}
+
+{! main content !}
+{<main}
+  
+  <div id="carousel-container">
+    {#featuredCarousel}
+      {>"partials/carousel-featured"/}
+    {/featuredCarousel}
+  </div>
+
+  <!-- BEGIN main block -->
+  <div id="main">
+    {#carousels}
+      {@if cond="{$idx} == 0"}
+        {>"partials/carousel-large" hasPromo="true"/}
+      {:else}
+        {>"partials/carousel"/}
+      {/if}
+    {/carousels}
+  </div>
+  <!-- END main block -->
+
+{/main}

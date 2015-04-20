@@ -1,0 +1,157 @@
+// Pagination bar with pages and total results output (left),
+// and a sort form (right). Used on search results, topic page
+.pagination {
+  position: relative;
+  padding: 15px 0 10px 0; // Padding instead of margin for stickyness
+
+  &.no-pages {
+    @include clearfix;
+    padding: 10px 0;
+
+    p {
+      float: left;
+      margin: 0;
+      line-height: 2.7;
+      .is-rtl & { float: right; }
+    }
+
+    li {
+      display: none;
+    }
+  }
+
+  p {
+    margin: 0 0 7px 0;
+    font-size: 12px;
+    color: $grey-b;
+
+    .is-rtl & {
+      text-align: right;
+    }
+  }
+
+  // Actual pages output
+  .pages {
+    @include clearfix;
+
+    li {
+      float: left;
+      border-width: 1px;
+      margin-left: -1px; // simulate border-collapse
+
+      .is-rtl & {
+        float: right;
+        margin-right: 0;
+        margin-left: -1px;
+      }
+
+      a {
+        display: block;
+        padding: 8px 10px;
+        color:  $grey-c;
+        font-size: 14px;
+        height: 32px;
+      }
+
+      // disabled item
+      &.is-disabled,
+      &.is-disabled:hover {
+        display:none;
+
+        &, a {
+          cursor: default;
+        }
+      }
+
+      // active item
+      &.is-active,
+      &:hover {
+        background-color: $pagination-active-background-color;
+
+        a {
+          color: $pagination-active-color;
+        }
+      }
+    }
+
+    // prev/next buttons
+    .prev, .next {
+      a {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+    }
+    .prev {
+      @extend .h-icon-arrow-left-sm;
+      margin-right: 10px;
+
+      .is-rtl & {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+    .next {
+      @extend .h-icon-arrow-right-sm;
+      margin-left: 10px;
+
+      .is-rtl & {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  // Sort form
+  .sort {
+    float: right;
+    position: relative;
+    top: 1px;
+    padding: 0;
+    margin: 0;
+
+    .is-rtl & {
+      float: left;
+    }
+
+    label {
+      @include inline-block;
+      vertical-align: top;
+      position: relative;
+      top: 8px;
+      margin-right: 5px;
+	  color: $white-a-dp;
+
+      .is-rtl & {
+        margin-right: 0;
+        margin-left: 5px;
+      }
+    }
+
+    select {
+      width: 150px;
+    }
+  }
+
+  // links
+  .links {
+    float: right;
+    position: relative;
+    top: 9px;
+    margin-right: 25px;
+
+    a {
+      margin-left: 10px;
+
+      .is-rtl & {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
+
+    .is-rtl & {
+      float: left;
+      margin-right: auto;
+      margin-left: 20px;
+    }
+  }
+}

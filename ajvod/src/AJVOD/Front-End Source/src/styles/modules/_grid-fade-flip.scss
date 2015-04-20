@@ -1,0 +1,60 @@
+// Grid items that have a front and back side, and the front fades
+// into the back on hover. Used in the channel navigation menu.
+
+.grid-fade-flip {
+  a {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    div {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &:hover {
+      .hover {
+        @include opacity(1);
+      }
+    }
+  }
+
+  img {
+    min-width: 100%;
+  }
+
+  .is-selected {
+    .hover {
+      @include opacity(1);
+    }
+  }
+
+  .hover {
+    @include transition(opacity 0.2s linear);
+    @include opacity(0);
+    -webkit-transform: translate3d(0,0,0);
+    width: 101%;
+    background: #fff;
+    z-index: 2;
+  }
+
+  .title {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 8px 12px 8px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+
+    @media all and(min-width: 1200px) {
+      & { font-size: 16px; }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/**
+ * Remove playlist / unsubscribe dialog
+ */
+
+.remove-playlist-dialog {
+  text-align: center;
+  padding: 10px 15px 5px 15px;
+
+  a {
+    @include transition(background-color 0.1s linear);
+    background-color: grey;
+    width: 110px;
+    padding: 10px 0;
+    color: #c7cbd7;
+    display: inline-block;
+
+    &:hover {
+      background-color: grey;
+    }
+  }
+}

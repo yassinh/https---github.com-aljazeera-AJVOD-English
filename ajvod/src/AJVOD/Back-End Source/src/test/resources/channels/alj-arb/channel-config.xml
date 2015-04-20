@@ -1,0 +1,35 @@
+<item type="Channel">
+  <key>aljarb</key><!-- purposely different -->
+  <name>Aljazeera Arabic</name>
+  <description></description>
+  <logoImageURL></logoImageURL>
+
+
+  <children type="ShowGenre">
+     <item>
+        <key>documentary</key>
+        <logoImageURL></logoImageURL>
+        <customFieldValue></customFieldValue>
+        <children key="shows">
+           <item type="Show">
+             <key>show1</key>
+           </item>
+           <item type="Show">
+             <key>show2</key>
+           </item>
+        </children>
+     </item>
+     <item>
+        <key>news</key>
+        <customFieldValue></customFieldValue>
+        <children type="Show">
+           <item>
+             <key>show3</key>
+           </item>
+           <item>
+             <key>show4</key>
+           </item>                                                                                                                                            
+       </children>
+     </item>
+  </children>
+</item>

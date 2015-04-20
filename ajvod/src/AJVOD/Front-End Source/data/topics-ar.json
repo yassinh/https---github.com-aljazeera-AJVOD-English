@@ -1,0 +1,41 @@
+{
+  "lang": "ar",
+  "dir": "rtl",
+  "pageName": "topics",
+  "title": "ALJ Topics Index Page",
+
+  "topics": [
+    {
+      "title": "Arts & Culture",
+      "channelID": 1111,
+      "items": [
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" }
+      ]
+    },
+
+    {
+      "title": "Business",
+      "channelID": 2222,
+      "items": [
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" }
+      ]
+    },
+
+    {
+      "title": "Education",
+      "channelID": 3333,
+      "items": [
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" },
+        { "thumb": "http://placehold.it/183x103", "date": "Feb 3, 2013", "duration": "06:24", "title": "Video name lorem ipsum dolor sit amet consectur adipisicing", "description": "Description here description here description here" }
+      ]
+    }
+  ]
+}

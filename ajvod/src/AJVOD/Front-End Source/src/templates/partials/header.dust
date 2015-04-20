@@ -1,0 +1,29 @@
+<!-- BEGIN header -->
+<header id="header" class="header-menu">
+  <div class="h-content">
+    <div class="links"></div>
+
+    <a class="logo" href="#">
+      <img src="images/channel/eng/logo.png" alt="">
+    </a>
+  </div>
+
+  {>"partials/navigation"/}
+</header>
+<!-- END header -->
+
+<!-- BEGIN navigation menus -->
+{>"partials/menu-search"/}
+
+{! home page only has search & preferences menus !}
+{@if cond="'{pageName}' !== 'home'"}
+  {>"partials/menu-channel"/}
+
+  {! your channel only has channel !}
+  {@if cond="'{pageName}' !== 'yourchannel'"}
+  {>"partials/menu-topics"/}
+  {>"partials/menu-news"/}
+  {>"partials/menu-shows"/}
+  {/if}
+{/if}
+<!-- END navigation menus -->

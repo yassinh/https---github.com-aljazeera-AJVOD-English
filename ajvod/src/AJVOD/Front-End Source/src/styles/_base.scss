@@ -1,0 +1,59 @@
+// ALJ Front-end Styles
+// Uses SMACSS (http://smacss.com/book) as a style guideline.
+@charset "utf-8";
+
+// bourbon! - http://bourbon.io/
+@import "bourbon/bourbon";
+
+// Variables
+@import "config";
+
+// Mixins
+@import "mixins/misc";
+@import "mixins/carousel";
+@import "mixins/item";
+@import "mixins/sprite";
+
+// Helpers
+@import "helpers/layout";
+@import "helpers/sprite";
+@import "helpers/flip";
+@import "helpers/sticky";
+@import "helpers/fadein";
+@import "helpers/dropin";
+
+// Base styles
+@import "common/_normalize";
+@import "common/elements";
+@import "common/layout";
+
+// Modules. Individual page .scss files will import
+// their own modules in.
+@import "modules/header";
+@import "modules/footer";
+@import "modules/navigation";
+@import "modules/overlay";
+@import "modules/menu";
+@import "modules/spinner";
+@import "modules/search";
+@import "modules/gigya-login";
+@import "modules/preferences";
+@import "modules/dialog";
+@import "modules/help";
+@import "modules/thumbnail-loader";
+@import "modules/grid";
+/* @import "modules/grid-fade-flip"; */
+@import "modules/grid-fade-reveal";
+@import "modules/grid-highlight";
+
+// TODO: move to pages that need it
+@import "modules/playlists-subscriptions";
+
+// jQuery UI
+@import "ui/ui";
+@import "ui/tooltip";
+@import "ui/dialog";
+@import "ui/selectmenu";
+@import "ui/tabs";
+@import "ui/notify";
+@import "ui/toggle";

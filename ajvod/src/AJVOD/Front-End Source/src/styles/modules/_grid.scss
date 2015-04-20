@@ -1,0 +1,21 @@
+/*
+ * Grid module
+ */
+
+.grid {
+  @include clearfix;
+
+  li {
+    position: relative;
+    float: left;
+
+    .is-rtl & {
+      float: right;
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

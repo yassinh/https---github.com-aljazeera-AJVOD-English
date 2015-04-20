@@ -1,0 +1,141 @@
+@import "base";
+@import "modules/carousel";
+@import "modules/carousel-large";
+@import "modules/promo";
+@import "modules/gigya-comments";
+@import "modules/panel";
+@import "modules/heading";
+@import "modules/video-metadata";
+@import "modules/bigscreen";
+@import "modules/timemachine";
+@import "modules/item";
+@import "modules/item-timeline";
+
+#panel {
+  $padding: 40px;
+  @include transition(all 0.5s linear);
+
+  background: $panel-background-color;
+  position: relative;
+  color: $panel-text-color;
+
+  a {
+    color: $panel-link-color;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  > div {
+    @include clearfix;
+    padding: $padding 0;
+    position: static;
+  }
+
+  .share-nav {
+    top: $padding;
+  }
+
+  .panel-item {
+    position: relative;
+    float: left;
+    width: 45%;
+    margin-left: 2.5%;
+
+    .is-rtl & {
+      float: right;
+      margin-left: 0;
+      margin-right: 2.5%;
+    }
+  }
+
+  // details
+  .details {
+    a {
+      text-decoration: underline;
+    }
+
+    .desc {
+      line-height: 1.3;
+    }
+
+    .desc, .related, .event {
+      font-size: 14px;
+    }
+
+    .show, .date {
+      font-size: 11px;
+      font-weight: bold;
+	  font-family:arial;
+    }
+
+    .date {
+      color: #fff;
+      margin-top: 0;
+	  font-family:arial;
+    }
+
+    .title {
+      font-size: 23px;
+      color: #fff;
+    }
+
+    .event {
+      line-height: 1.8;
+      text-decoration: none;
+    }
+  }
+}
+
+// Comments panel
+#panel-comments.panel-item {
+  width: 64%;
+  margin-left: 0;
+
+  .is-rtl & {
+    margin-right: 0;
+    margin-left: 2.5%;
+  }
+}
+
+// player
+#player-container {
+  width: 52%;
+  float: left;
+  position: relative;
+
+  .is-rtl & {
+    float: right;
+  }
+
+  .is-contracted & {
+    /* position: absolute; */
+    /* right: 7%; */
+    /* width: 30%; */
+    @include rtlfloat(right);
+    width: 33.333333333333%;
+    max-width: 33.33333333333%;
+  }
+}
+
+#player {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56%;
+  
+  //border: 2px solid $grey-u;
+
+  .BrightcoveExperience {
+    position: absolute;
+    height: 100%;
+  }
+}
+
+a:hover {
+	color:black;
+}
+ .your-channel a {
+     background-color: gray;
+	 
+  }

@@ -1,0 +1,32 @@
+/*
+ * Carousel w/ an advanced menu on hover.
+ * This is only used on the all shows page for now.
+ *
+ * The item-menu module handles all the styles for the menu
+ */
+.carousel-advanced-menu {
+  @include carousel;
+
+  // spinner is placed inside the thumb container so that it's
+  // centered over the thumb, not the entire li.
+  .thumb {
+    position: relative;
+  }
+
+  .carousel-hook {
+    min-height: 100%;
+
+    @media all and (min-width: $page-total-width) {
+      & { min-height: 100%; }
+    }
+
+    // Remove margin from the last item
+    li:last-child .item-menu {
+      margin-right: 0;
+
+      .is-rtl & {
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div>
+  <div class="player-wrapper">
+    <object id="myExperience1094698378001" class="BrightcoveExperience">
+      <param name="bgcolor" value="#FFFFFF" />
+      <param name="width" value="100%" />
+      <param name="height" value="100%" />
+      <param name="playerID" value="983568312001" />
+      <param name="playerKey" value="AQ~~,AAAA5LSvUWE~,ofAvgRd2dY4RO62OuCveTQlZD3IJqOkK" />
+      <param name="isVid" value="true" />
+      <param name="isUI" value="true" />
+      <param name="autoStart" value="true" />
+      <param name="wmode" value="transparent" />
+      <param name="dynamicStreaming" value="true" />
+      <param name="@videoPlayer" value="{carousel_items[0].id}" />
+    </object>
+  </div>
+
+  <section class="carousel-hook">
+    <ul style="width: {@eval script="100 * {carousel_items.length}"/}%;">
+      {#carousel_items}
+        <li data-id="{id}" style="width: {@eval script="100 / {$len}"/}%;">
+          <div class="item details">
+            <a class="title" href="#">{title}</a>
+            <a class="show" href="#">Al Jazeera English</a>
+            <span class="divider">|</span>
+            <a class="show" href="#">Fault Lines</a>
+          </div>
+        </li>
+      {/carousel_items}
+    </ul>
+  </section>
+
+  <div class="controls">
+    <div class="next-prev">
+      <a href="#" class="next"></a>
+      <a href="#" class="prev"></a>
+    </div>
+
+    <p class="page">1 of 3</p>
+  </div>
+</div>

@@ -1,0 +1,232 @@
+// Search page (not overlay)
+@import "base";
+@import "modules/carousel";
+@import "modules/pagination";
+@import "modules/heading";
+@import "modules/video-metadata";
+@import "modules/bigscreen";
+@import "modules/item";
+
+$left-width: 80%;
+$right-width: 20%;
+$spacing: 20px;
+
+#container {
+
+}
+
+#top {
+  background: #312f2b;
+  border-bottom: 1px solid $grey-d;
+  margin-bottom: $spacing;
+
+  .h-sticky {
+    
+  }
+}
+
+#term {
+  margin: 0;
+}
+
+#for {
+  margin: 30px 0 5px 0;
+  font-size: 18px;
+}
+
+#main {
+
+  background-color: #000;
+
+  > .h-content {
+    margin: 20px auto;
+  }
+}
+
+.pagination {
+  .pages {
+    display: inline-block;
+  }
+}
+
+#results {
+  float: left;
+  width: $left-width;
+
+  .is-rtl & {
+    float: right;
+  }
+
+  li {
+    @include clearfix;
+    margin-bottom: $spacing + 5px;
+  }
+
+  .details {
+    width: 70%;
+    padding-left: 3%;
+    float: left;
+
+	.title:hover {
+
+	  color:#636363;
+	
+	}
+    .is-rtl & {
+      float: right;
+      padding-left: 0;
+      padding-right: 3%;
+    }
+
+	.show.light:hover
+	{
+		background-color: #020202;
+		color: #636363;
+	}
+  }
+
+  .thumb {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    width: 30%;
+    max-width: 160px;
+    height: 90px;
+    float: left;
+    
+	//border: 2px solid #fff;
+
+    .is-rtl & {
+      float: right;
+    }
+
+    &:hover {
+      .h-icon {
+        @include opacity(1);
+      }
+    }
+  }
+
+  .h-icon-play {
+    @include position(absolute, 0 8px 8px 0);
+    @include transition(opacity $item-transition-speed linear);
+
+    @include opacity(0);
+    text-indent: -9999px;
+
+    .is-rtl & {
+      right: auto;
+      left: 8px;
+    }
+  }
+
+  .title {
+    font-size: 18px;
+    display: block;
+
+    
+  }
+
+  .show {
+    margin-bottom: 0;
+  }
+
+  .desc {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+}
+
+// Filters
+
+#filters {
+  float: right;
+  width: $right-width;
+  font-size: 14px;
+
+  .is-rtl & {
+    float: left;
+  }
+
+  .is-active {
+    font-weight: bold;
+  }
+
+  ul {
+    line-height: 1.6;
+
+	li {
+		color: #dcdee0;
+	}
+
+	li:hover {
+		color : #FFFFFF;
+	}
+  }
+
+  p {
+    border-bottom:  0px solid $grey-d;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+    padding-bottom: 8px;
+    color:  #a3a3a3;
+
+    span {
+      border-bottom: 3px solid $grey-d;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+// Channel results
+#channels {
+  background: $grey-d-dp;
+
+  section {
+    margin: 0 auto;
+  }
+
+  .body {
+    border-top: 1px solid #fff;
+  }
+
+  ul {
+    padding: 2% 0;
+  }
+
+  li {
+    width: 32%;
+    margin: 0 2% 0 0;
+
+    .details {
+      padding-bottom: 25%;
+    }
+
+    .is-rtl & {
+      margin-right: 0;
+      margin-left: 2%;
+    }
+    .is-ltr &.is-last-child {
+      margin-right: 0;
+    }
+    .is-rtl &.is-last-child {
+      margin-left: 0;
+    }
+  }
+
+  img {
+    min-width: 100%;
+  }
+}
+
+h1
+{
+	color: #FFFFFF;
+	font-zise: 36px;
+}
+
+ .your-channel a {
+     background-color: gray;
+	 
+  }

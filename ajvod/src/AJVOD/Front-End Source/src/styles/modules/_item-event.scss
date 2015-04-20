@@ -1,0 +1,71 @@
+/**
+ * Event items
+ * Used to style a video that is part of a timeline event.
+ * The events page is the only page that implements this.
+ */
+.item-event {
+  @include item;
+  @include item-hover-state;
+
+  background: #2b2929;
+  border: solid #2b2929;
+
+  .title {
+    color: $grey-g;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .desc {
+    color: #fff;
+  }
+
+  .footer {
+    opacity: 1 !important;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    text-transform: none;
+    font-weight: normal;
+    color: $orange-a-dp;
+    bottom: 0;
+
+    .h-icon {
+      @include transition(opacity 0.1s linear);
+      opacity: 0;
+      color: $orange-a-dp;
+      position: static;
+      text-transform: uppercase;
+
+      &:after {
+        margin-right: 0;
+        margin-left: 7px;
+        float: right;
+        position: relative;
+        top: -6px;
+      }
+    }
+  }
+
+  .details {
+    background: #2b2929;
+    padding: 5px;
+    padding-bottom: 23%;
+
+    .desc {
+      font-size: 14px;
+      margin: 10px 0;
+      line-height: 1.3;
+    }
+  }
+
+  &:hover {
+    .h-icon {
+      opacity: 1;
+    }
+  }
+}

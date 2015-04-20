@@ -1,0 +1,59 @@
+/*
+ * Shared UI styles for all dialogs
+ */
+.ui-dialog {
+  outline: none;
+  z-index: $dialog-zindex;
+  position: relative;
+
+  .h-icon-close {
+    $pos: -(37px / 2) + 2px;
+    text-indent: -9999px;
+    position: absolute;
+    top: $pos;
+    right: $pos;
+    z-index: 1;
+    outline: none;
+
+    .is-rtl & {
+      right: auto;
+      left: $pos;
+    }
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .spinner {
+    z-index: 1;
+  }
+}
+
+.ui-dialog-titlebar {
+  display: none;
+}
+
+.ui-dialog-content {
+  border-radius: 1px;
+  background: black;
+  color: #fff;
+  box-shadow: 0 0 0 7px rgba(130, 130, 130, 0.8);
+
+  // IE9/10: box-shadow leaves artifacts when the dialog is
+  // resized, so use border instead
+  @media screen and (min-width:0\0) {
+    box-shadow: none;
+    border: 7px solid rgba(130, 130, 130, 0.8);
+  }
+}
+
+.ui-dialog-animate {
+  @include transition(
+    width 0.1s linear,
+    height 0.1s linear,
+    top 0.1s linear,
+    left 0.1s linear,
+    margin 0.1s linear
+  );
+}

@@ -1,0 +1,164 @@
+/**
+ * Search overlay
+ */
+$search-overlay-spacing: 20px;
+$search-overlay-width: 70%;
+$search-overlay-margin: 2%;
+
+#search-overlay {
+  width: 600px;
+  margin: 0 auto;
+  font-size: 14px;
+
+  footer a, .related a {
+    color:  $grey-e;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  select {
+    width: 150px;
+  }
+
+  header {
+    text-align: right;
+    margin-bottom: 10px;
+
+    .is-rtl & {
+      text-align: left;
+    }
+
+    p {
+      @include inline-block;
+      vertical-align: top;
+      margin-right: 5px;
+      position: relative;
+      top: 7px;
+
+      .is-rtl & {
+        margin-right: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  footer {
+    font-size: 23px;
+    font-weight: bold;
+    padding: 5px $search-overlay-spacing;
+
+    a {
+      color:  $grey-e;
+    }
+  }
+
+  .input-container {
+    position: relative;
+
+    a {
+      @include sprite(
+        $default-pos: -96px -86px,
+        $hover-pos: -96px -128px
+      );
+
+      display: block;
+      position: absolute;
+      right: 15px;
+      top: 8px;
+      width: 32px;
+      height: 32px;
+
+      .is-rtl & {
+        right: auto;
+        left: 15px;
+      }
+    }
+  }
+
+  .spinner {
+    .is-rtl & {
+    }
+  }
+
+  // section titles
+  .related > p {
+    font-weight: bold;
+    margin-bottom: 15px;
+
+    span {
+      font-weight: normal;
+      margin-left: 5px;
+
+      .is-rtl & {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid #626262;
+    width: 100%;
+
+    &.has-spinner {
+      background-position-x: 90%;
+    }
+  }
+
+  .videos {
+    width: $search-overlay-width - $search-overlay-margin;
+
+    .thumb {
+      position: relative;
+    }
+  }
+
+  .related {
+    float: right;
+    width: 30%;
+    line-height: 1.5;
+
+    .is-rtl & {
+      float: left;
+    }
+  }
+}
+
+.search-overlay-body {
+  padding: $search-overlay-spacing;
+  background: #3f3e3c;
+}
+
+.search-overlay-videos {
+  width: 65%;
+
+  & > p {
+    margin-bottom: 15px;
+
+    .is-rtl & {
+      text-align: right;
+    }
+  }
+}
+
+.search-overlay-grid {
+  clear: both;
+
+  img {
+    min-width: 100%;
+  }
+
+  li {
+    width: (100 / 2) - $search-overlay-margin;
+    margin: 0 $search-overlay-margin 0 0;
+
+    .is-rtl & {
+      margin-right: 0;
+      margin-left: $search-overlay-margin;
+    }
+  }
+}

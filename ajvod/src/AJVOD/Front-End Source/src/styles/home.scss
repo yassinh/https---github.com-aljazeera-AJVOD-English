@@ -1,0 +1,104 @@
+@import "base";
+@import "modules/grid-fade-reveal";
+@import "modules/background-player";
+@import "modules/item";
+
+$nav-offset: 40px;
+
+html, body {
+  height: 100%;
+}
+
+html, body {
+  background: #000;
+  overflow-y: hidden;
+}
+
+#container {
+  background: black;
+  min-width: $page-width-min;
+  max-width: none;
+  height: 100%;
+
+  // TODO: optimize this
+  & > menu {
+    .body {
+      padding-top: $nav-offset;
+    }
+    .close {
+      top: 40px + $nav-offset;
+    }
+  }
+}
+
+#header {
+  overflow-y: hidden;
+
+  .h-content {
+	.links {
+		display: none;
+	}
+  } 
+}
+
+.nav {
+  background: transparent;
+  margin-top: -$nav-offset;
+  border-top: none;
+
+  .is-rtl & {
+ background:#312f2b!important;
+}
+}
+
+#main {
+  padding: 0;
+
+  .your-channel a {
+     background-color: gray;
+	 
+  }
+
+  .your-channel {
+    background-color: gray;
+
+    .hover {
+      padding-bottom: 40%;
+
+      img {
+        display: block;
+        min-width: 0;
+        width: 35%;
+        margin: 26% auto 0 auto;
+      }
+
+      .title {
+        color: #01549a;
+      }
+    }
+
+
+  }
+}
+
+#grid-container {
+  min-width: $page-width-min;
+  position: absolute;
+  bottom: 5%;
+  z-index: 100;
+  width: 100%;
+}
+
+.grid-fade-reveal {
+  .your-channel img {
+    width: 55%;
+	 
+  }
+  .your-channel a {
+     background-color: gray;
+	 
+  }
+ 
+}
+
+

@@ -1,0 +1,59 @@
+<a class="h-icon-close" href="#"></a>
+
+<div class="bs-player">
+  <object id="myExperience<%= new Date().getTime() %>" class="BrightcoveExperience">
+    <param name="bgcolor" value="#FFFFFF" />
+    <param name="width" value="100%" />
+    <param name="height" value="100%" />
+    <param name="playerID" value="<%= player_id %>" />
+    <param name="playerKey" value="<%= player_key %>" />
+    <param name="isVid" value="true" />
+    <param name="isUI" value="true" />
+    <param name="autoStart" value="true" />
+    <param name="wmode" value="transparent" />
+    <param name="mode" value="vodplaylist" />
+    <param name="dynamicStreaming" value="true" />
+    <param name="@videoPlayer" value="<%= videos[0].id %>" />
+  </object>
+</div>
+
+<div class="bs-carousel">
+  <div class="bs-tab">
+    <div class="h-content">
+      <a href="#">
+        <span class="title"><%= eventName %></span>
+        <span class="duration"><%= duration %></span>
+      </a>
+    </div>
+  </div>
+
+  <% if(startDate) { %>
+  <div class="timemachine-range">
+    <%= startDate %> &dash; <%= endDate %>
+  </div>
+  <% } %>
+
+  <div class="timemachine-container" dir="ltr">
+    <div class="timemachine-ticker"></div>
+    <div class="timemachine-center"></div>
+
+    <div class="timemachine-timeline" id="timemachine-timeline">
+      <ul data-width="<%= (videos.length / 5.5) * 100 %>%" style="width: <%= (videos.length / 5.5) * 100 %>%">
+        <% _.each(videos, function(video) { %>
+          <li class="item-timeline" style="width: <%= 100 / videos.length %>%" data-video-id="<%= video.id %>" data-year="<%= video.year %>" <% if(app.context.isRTL) { %> dir="rtl" class="is-rtl"<% } %>>
+            <% if(video.startsYear) { %>
+              <p class="year"><%= video.year %></p>
+            <% } %>
+            <p class="date">Next</p>
+            <a class="title" href="#"><%= video.name %></a>
+            <p class="footer">
+              <a href="#" class="h-icon h-icon-play"></a>
+              <a href="#" class="h-icon h-icon-play-orange"></a>
+              <a href="<%= video.showUrl %>"><%= video.showText %></a>
+            </p>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>

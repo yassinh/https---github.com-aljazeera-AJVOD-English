@@ -1,0 +1,69 @@
+<div class="body">
+  <a class="close h-icon-close" href="#"></a>
+  <h1><%= localization.preferences_header %></h1>
+
+  <section>
+    <% if(data) { %>
+      <div class="header">
+        <% if(isLoggedIn) { %>
+          <div class="avatar">
+            <% if(user.thumbnailURL) { %>
+              <img src="<%= user.thumbnailURL %>" alt="">
+            <% } else { %>
+              <span class="h-icon h-icon-user-lg"></span>
+            <% } %>
+          </div>
+
+        <strong><%= user.nickname || user.firstname || user.email %></strong>
+        <a href="#" class="logout">(<%= localization.logout %>)</a>
+        <% }else{ %>
+          <strong><%= localization.preferences_header %></strong>
+        <% } %>
+      </div>
+
+      <form action="#" method="post">
+        <div>
+          <label for="lang">
+            <%= localization.preferences_language %>
+            <a href="#" class="h-icon h-icon-help-dark help-dialog" data-help-title="<%= localization.help_preferredlang_title %>" data-help-desc="<%= localization.help_preferredlang_desc %>"></a>
+          </label>
+          <select name="lang">
+            <% _.each(data.languages, function(lang) { %>
+              <option value="<%= lang.code %>"<% if(data.preferences.lang === lang.code) { %> selected<% } %>><%= lang.name %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div>
+          <label for="country">
+            <%= localization.preferences_country %>
+            <a href="#" class="h-icon h-icon-help-dark help-dialog" data-help-title="<%= localization.help_country_title %>" data-help-desc="<%= localization.help_country_desc %>"></a>
+          </label>
+          <select name="country">
+            <% _.each(data.countries, function(country) { %>
+            <option value="<%= country.code %>"<% if(data.preferences.country === country.code) { %> selected<% } %>><%= country.name %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div>
+          <label for="timezone">
+            <%= localization.preferences_timezone %>
+            <a href="#" class="h-icon h-icon-help-dark help-dialog" data-help-title="<%= localization.help_timezone_title %>" data-help-desc="<%= localization.help_timezone_desc %>"></a>
+          </label>
+          <select name="timezone">
+            <% _.each(data.timezones, function(timezone) { %>
+              <option value="<%= timezone.id %>"<% if(data.preferences.timezone === timezone.id) { %> selected<% } %>><%= timezone.name %></option>
+            <% }); %>
+          </select>
+        </div>
+      </form>
+
+      <p><%= localization.preferences_description %></p>
+
+      <% if(isLoggedIn) { %>
+        <p class="networks"><a href="#"><%= localization.socialNetwork %></a></p>
+      <% } %>
+    <% } else { %>
+      <div class="spinner style-dark">
+    <% } %>
+  </section>
+</div>

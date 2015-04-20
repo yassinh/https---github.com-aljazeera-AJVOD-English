@@ -1,0 +1,82 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script async src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+  <script async src="http://admin.brightcove.com/js/APIModules_all.js"></script> 
+  <script src="scripts/page-show.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" href="styles/show.css">
+{/styles}
+
+{! main content !}
+{<main}
+  <div id="banner" class="panel" data-query="{}" data-title="Subscription Title" data-prefix="Shows:">
+    <div id="banner-top">
+      {>"partials/panel-navigation" hasMain="true" hasShare="true"/}
+
+      <div class="hero-background" style="background-image: url(http://placeimg.com/700/300)"></div>
+
+      <div class="h-content">
+        <p class="links">
+          <a href="#" class="h-icon h-icon-grid-white">All Shows</a>
+          {>"partials/playlist-links" whiteHoverIcon="true"/}
+        </p>
+
+        <h1>Fault Lines</h1>
+
+        <div id="player">
+          <object class="BrightcoveExperience">
+            <param name="bgcolor" value="#FFFFFF" />
+            <param name="width" value="252" />
+            <param name="height" value="141" />
+            <param name="playerID" value="983568312001" />
+            <param name="playerKey" value="AQ~~,AAAA5LSvUWE~,ofAvgRd2dY4RO62OuCveTQlZD3IJqOkK" />
+            <param name="isVid" value="true" />
+            <param name="isUI" value="true" />
+            <param name="autoStart" value="true" />
+            <param name="wmode" value="transparent" />
+            <param name="dynamicStreaming" value="true" />
+            <param name="@videoPlayer" value="1549305523001" />
+          </object>
+        </div>
+
+        <menu id="panel-main" class="panel-item is-active">
+          <p class="desc">Presented by Josh Rushing and Avi Lewis, Fault Lines looks deeper into the US and its place in the world.</p>
+
+          <div class="meta">
+            <a href="#" class="thumb"><img src="http://placeimg.com/85/50" alt=""></a>
+            <a class="title" href="#">How the White House was Won</a>
+            <p class="date"><span>24:55</span>Nov 8, 2012</p>
+            <p class="shortdesc">Fault Lines explains why Obama won, and asks if the system is truly democratic.</p>
+          </div>
+        </menu>
+
+        <menu id="panel-sharing" class="panel-item">
+          <p>Share</p>
+
+          <ul>
+            <li><a href="#" class="h-icon h-icon-facebook">Facebook</a></li>
+            <li><a href="#" class="h-icon h-icon-twitter">Twitter</a></li>
+            <li><a href="#" class="h-icon h-icon-linkedin">LinkedIn</a></li>
+            <li class="is-last-child"><a href="#" class="h-icon h-icon-google">Google+</a></li>
+          </ul>
+        </menu> <!-- end .share -->
+
+      </div> <!-- end .h-content -->
+    </div> <!-- end #banner-top -->
+  </div> <!-- end #banner -->
+
+  <div id="main">
+    {#carousels}
+      {@if cond="{$idx} == 0"}
+        {>"partials/carousel-large" hasPromo="false"/}
+      {:else}
+        {>"partials/carousel"/}
+      {/if}
+    {/carousels}
+  </div>
+{/main}

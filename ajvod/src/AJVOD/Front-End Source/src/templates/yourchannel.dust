@@ -1,0 +1,146 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script async src="//admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+  <script async src="//admin.brightcove.com/js/APIModules_all.js"></script>
+  <script src="scripts/page-yourchannel.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" href="styles/yourchannel.css">
+{/styles}
+
+{! main content !}
+{<main}
+
+  <!-- BEGIN main block -->
+  <div id="main">
+
+    <!-- BEGIN top -->
+    <div id="top">
+      <div class="h-content">
+        <h1>Your Channel</h1>
+      </div>
+
+      <div class="background"></div>
+      <div id="recommendations"></div>
+    </div>
+    <!-- END top -->
+
+    <div class="ui-tabs">
+      <ul class="ui-tabs-nav h-content">
+        <li><a href="#tab-subscriptions">Subscriptions</a></li>
+        <li><a href="#tab-playlists">Playlists</a></li>
+        <li><a href="#tab-unfinished">Unfinished Videos</a></li>
+      </ul>
+
+      <!-- BEGIN subscriptions tab panel -->
+      <div id="tab-subscriptions" class="ui-tabs-panel">
+        {@if cond="'{subscriptions}'.length"}
+          <div class="top">
+            <div class="h-content">
+              <div class="manage-links">
+                <a href="#" class="edit-subscriptions">Edit Subscriptions</a>
+              </div>
+
+              <h1 class="title">
+                Subscriptions
+                <a href="#" class="h-icon h-icon-help help-dialog" data-help-title="Subscriptions" data-help-desc="To subscribe to topics and  videos, click the 'Subscribe' button when you see a list of videos you want to track."></a>
+              </h1>
+            </div>
+          </div>
+
+          {#subscriptions}
+            {>"partials/carousel-yourchannel"/}
+          {/subscriptions}
+        {:else}
+          <div class="h-content no-playlists">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured.</p>
+          </div>
+        {/if}
+      </div>
+      <!-- END subscriptions tab panel -->
+
+
+      <!-- BEGIN playlist tab panel -->
+      <div id="tab-playlists" class="ui-tabs-panel">
+        <div class="top">
+          <div class="h-content">
+            <div class="manage-links">
+              <a href="#" class="do-playlist-create h-icon h-icon-plus">Create a New Playlist</a>
+              <a href="#" class="do-playlist-edit">Edit Playlists</a>
+            </div>
+
+            <h1 class="title">
+              Playlists
+              <a href="#" class="h-icon h-icon-help help-dialog" data-help-title="Playlists" data-help-desc="Create your own custom playlists and add video you find throughout the site."></a>
+            </h1>
+          </div>
+        </div>
+
+        {@if cond="'{playlists}'.length"}
+          <div id="playlists-target">
+            {#playlists}
+              {>"partials/carousel-yourchannel" hasSubscribeLinks="false" hasPlaylistDeleteLink="true" hasAllShowsLink="false"/}
+            {/playlists}
+          </div>
+        {:else}
+          <div class="h-content no-playlists">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irured.</p>
+          </div>
+        {/if}
+      </div>
+      <!-- END playlist tab panel -->
+
+
+      <!-- BEGIN Unfinished Videos tab panel -->
+      <div id="tab-unfinished" class="ui-tabs-panel">
+        <div class="top">
+          <div class="h-content">
+            <h1 class="title">
+              Unfinished Videos
+              <a href="#" class="h-icon h-icon-help help-dialog" data-help-title="Unfinished Videos" data-help-desc="Resume watching videos you did not finish watching."></a>
+            </h1>
+
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur congue arcu eget euismod. Ut eu fermentum nisi. Integer sit amet nisl tincidunt, luctus tortor vel, imperdiet ante. Curabitur vitae nisi mi. Aliquam eget faucibus dolor. Morbi adipiscing sem vitae placerat volutpat.</p>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="h-content">
+            {@if cond="'{unfinished}'.length"}
+              <ul class="grid left">
+                {#unfinished.items group="0"}
+                  {items.title}
+                  <li class="{@if cond="{$idx} === 0 || ({$idx} % 6 === 0)"} first-child is-promo{/if}">
+                    {@if cond="{$idx} === 0 || ({$idx} % 6 === 0)"}
+                      {>"partials/item" hasDescription="false"/}
+                    {:else}
+                      {>"partials/item"/}
+                    {/if}
+                  </li>
+
+                  {@if cond="({$idx} + 1) % 6 == 0"}
+                    </ul>
+                    <ul class="grid right">
+                  {/if}
+                {/unfinished.items}
+              </ul>
+            {:else}
+              Tab Unfinished - No items
+            {/if}
+          </div>
+        </div>
+      </div>
+      <!-- END unfinished tab panel -->
+    </div>
+
+  </div>
+  <!-- END main block -->
+{/main}
+
+{>"partials/dialog-edit-subscriptions"/}

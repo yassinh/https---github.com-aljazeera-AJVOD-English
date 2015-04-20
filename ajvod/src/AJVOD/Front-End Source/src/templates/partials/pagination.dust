@@ -1,0 +1,41 @@
+<div class="pagination{@if cond="{numPages} <= 1"} no-pages{/if}" data-query="some search query" data-title="some title" data-id="id here if already subscribed" data-prefix="prefix from terms file for this page">
+  <!--
+    rtl screws with the positions of the span tags in the <p> element below,
+    so force into LTR mode and CSS will place it properly.
+  -->
+  <p{@if cond="'{dir}' == 'rtl'"} dir="ltr"{/if}>
+    <span class="results-start-index">1</span> - <span class="results-end-index">20</span> of <span class="results-length">92</span>
+    {@if cond="'{pageName}' === 'events'"}Events{:else}Videos{/if}
+  </p>
+
+    <form class="sort" method="get" action="{action}">
+      <input type="hidden" name="page" value="1">
+      <input type="hidden" name="cid" value="eng">
+
+      {@if cond="'{hasSort}' !== 'false'"}
+        <label>Sort by</label>
+        <select name="sort">
+          <option value="recent">Most Recent</option>
+          <option value="popular">Popular</option>
+        </select>
+      {/if}
+    </form>
+
+  {@if cond="'{hasSort}' !== 'false'"}
+    <div class="links">
+      {>"partials/playlist-links"/}
+    </div>
+  {/if}
+
+  {@if cond="{numPages} > 1"}
+    <ul class="pages">
+      <li class="prev is-disabled"><a href="#"></a></li>
+      <li class="is-active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li class="next"><a href="#"></a></li>
+    </ul>
+  {/if}
+</div>

@@ -1,0 +1,20 @@
+// Layout helpers
+
+.h-hidden {
+  display: none !important;
+}
+
+.h-container {
+  @include layout-container;
+}
+
+.h-content {
+  @include content-container;
+  @include clearfix;
+  position: relative;
+  margin: 0 auto;
+}
+
+.h-clearfix {
+  @include clearfix;
+}

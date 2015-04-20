@@ -1,0 +1,44 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script async src="//admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+  <script async src="//admin.brightcove.com/js/APIModules_all.js"></script>
+  <script src="scripts/page-home.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" href="styles/home.css">
+{/styles}
+
+{! main content !}
+{<main}
+  <div class="bgplayer">
+    <video autoplay>
+      <div class="bgplayer-fallback" data-image="images/home-background.png"></div>
+    </video>
+  </div>
+
+  <div id="grid-container">
+    <div class="h-content">
+
+      <ul class="grid grid-fade-reveal">
+        <li class="your-channel h-hidden h-fade-in">
+          <a href="/your-channel/">
+            <img src="images/logo-trans.png" alt="{title}">
+            <p class="title">Your Channel</p>
+          </a>
+        </li>
+
+      <li class="h-fade-in theme-dark-blue h-fade-in-run">
+          <a href="/channels/eng">
+            <img src="/resources/images/channel/eng/logo.png" alt="Al Jazeera English">
+            <p class="title">Al Jazeera English</p>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{/main}

@@ -1,0 +1,22 @@
+<% if(user.isLoggedIn) { %>
+  <a href="#" class="welcome">
+    <% if(user.thumbnailURL) { %>
+      <img src="<%= user.thumbnailURL %>" alt="">
+    <% } else { %>
+      <span class="h-icon h-icon-user-sm"></span>
+    <% } %>
+    <%= localization.welcome_link %> <%= user.nickname || user.firstname || user.email %>
+  </a>
+  <a href="/your-channel/" class="yourchannel" ><%= localization.yourChannel %></a>
+  <a href="/your-channel/#unfinished-videos"><%= localization.unfinished_videos %></a>
+  <a href="#" class="preferences"><%= localization.preferences_link %></a>
+  <a href="#" class="logout"><%= localization.logout %></a>
+  <a href="http://www.aljazeera.com/VODAbout/"><%= localization.about %></a>
+<% } else { %>
+  <a href="#" class="register"><%= localization.createAcct %></a>
+  <a href="#" class="h-icon h-icon-help help-dialog" data-help-title="<%= localization.help_createacct_title %>" data-help-desc="<%= localization.help_createacct_desc %>"></a>
+  <a href="#" class="preferences"><%= localization.preferences_link %></a>
+  <a href="#" class="login"><%= localization.login %></a>
+
+  <a href="http://www.aljazeera.com/VODAbout/"><%= localization.about %></a>
+<% } %>

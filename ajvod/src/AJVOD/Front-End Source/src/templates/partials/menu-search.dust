@@ -1,0 +1,23 @@
+{! Search menu !}
+{! Apply the standard menu layout !}
+{>"layouts/menu" for="search-overlay"/}
+
+{! Body of the menu !}
+{<body}
+  <!-- replace the action attribute with the actual search results page -->
+  <form id="search-overlay" name="cid" action="/path-to-results/" data-ajax-action="/aljazeera-vod/searchresults-ajax" method="get">
+    <header>
+      <p>Search videos within</p>
+      <select>
+        <option>Channel Name</option>
+      </select>
+    </header>
+
+    <p class="input-container">
+      <input type="text" name="st" placeholder="Enter search term" autocomplete="off" tabindex="1" autofocus>
+      <a href="#"></a>
+    </p>
+
+    <div class="target"></div>
+  </form>
+{/body}

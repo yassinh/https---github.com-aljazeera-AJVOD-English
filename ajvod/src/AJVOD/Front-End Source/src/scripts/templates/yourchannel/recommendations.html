@@ -1,0 +1,62 @@
+<section class="carousel">
+  <header class="heading">
+    <div class="h-content">
+      <div class="links">
+        <nav><!-- placeholder --></nav>
+      </div>
+      <p class="title">
+        <%= localization.recommended_for_you %>
+
+        <% if(storedVideo) { %>
+        <a href="#"
+          class="h-icon h-icon-help help-dialog"
+          data-help-title="<%= localization.help_recommendations_title %>"
+          data-help-desc="<%= localization.help_recommendations_desc.replace('{0}', storedVideo.name) %>"></a>
+        <% } %>
+      </p>
+    </div>
+  </header>
+
+  <div class="body">
+    <div class="h-content">
+      <div class="next-prev">
+        <a class="prev"></a>
+        <a class="next"></a>
+      </div>
+
+      <div class="carousel-hook">
+        <ul style="width: <%= (list.length / 4.5) * 100 %>%;">
+          <% _.each(list, function(video) { %>
+            <li style="width: <%= (100 / list.length) %>%;" dir="<%= video.dir %>" class="is-<%= video.dir %>" data-video-id="<%= video.id %>">
+              <div class="item" data-video-id="<%= video.id %>" data-playlist-id="" data-playlist-name="">
+                <div class="tooltip">
+                  <div class="details">
+                    <p class="title"><%= video.name %></p>
+                    <p class="desc"><%= video.description %></p>
+                  </div>
+                </div>
+                <a class="h-icon h-icon-playlist-add do-playlist-add" href="#"></a>
+                <a class="h-icon h-icon-playlist-remove do-playlist-remove h-hidden" href="#"></a>
+                <a class="thumb" href="<%= video.url %>">
+                  <img src="<%= video.thumbnail.url || "" %>" alt="">
+                </a>
+                <div class="details">
+                  <a class="title" href="<%= video.url %>"><%= video.name %></a>
+                  <p class="date"><span><%= video.duration %></span><%= video.created %></p>
+                </div>
+                <p class="footer">
+                <a href="<%= video.url %>" class="h-icon h-icon-play"></a>
+                <a href="<%= video.url %>" class="show"><%= video.categories %></a>
+                </p>
+              </div>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <ul></ul>
+  </footer>
+</section>

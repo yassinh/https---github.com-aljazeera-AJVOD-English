@@ -1,0 +1,20 @@
+<a href="#" class="h-icon-close" title="<%= localization.close_text %>"><%= localization.close_text %></a>
+
+<h1><%= localization.playlist_add_dialog_title %></h1>
+<h2><%= localization.playlist_add_dialog_subtitle %></h2>
+
+<ul>
+  <% _.each(playlists, function(playlist) { %>
+    <li><a href="#" data-playlist-id="<%= playlist.id %>"><%= playlist.name %></a></li>
+  <% }); %>
+</ul>
+
+<% if(reachedMax) { %>
+  <p class="max"><%= localization.playlist_max %></p>
+<% } else { %>
+  <form class="playlist-create-form">
+    <input type="hidden" name="videoID" value="<%= videoID %>">
+    <input type="text" name="name" autofocus>
+    <a href="#" class="submit is-disabled"><%= localization.playlist_create %></a>
+  </form>
+<% } %>

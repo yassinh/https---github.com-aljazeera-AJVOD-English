@@ -1,0 +1,162 @@
+@import "base";
+@import "modules/carousel";
+@import "modules/carousel-large";
+@import "modules/promo";
+@import "modules/panel";
+@import "modules/heading";
+@import "modules/video-metadata";
+@import "modules/bigscreen";
+@import "modules/item";
+
+#banner {
+  background: $grey-l;
+  color: #fff;
+
+  a {
+    color:  $grey-d;
+  }
+
+  h1 {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+// top half of the banner where the player is
+
+#banner-top {
+  $spacing: 25px;
+  background: $grey-k;
+  position: relative;
+  z-index: 2;
+  padding-top: 10px;
+  padding-bottom: 40px;
+
+  .desc {
+    margin: 0;
+  }
+
+  .panel-nav {
+    z-index: 1;
+    top: 120px;
+  }
+
+  // top links
+  .links {
+    a {
+      @include inline-block;
+      font-size: 12px;
+      margin-right: 20px;
+
+      &:hover {
+        color: #fff;
+      }
+
+      .is-rtl & {
+        margin-right: 0;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+#player {
+  background: $grey-r;
+  position: relative;
+  
+  //border: 2px solid #908f8e;
+  width: 52%;
+  height: 0;
+  padding-bottom: 29%;
+  float: left;
+
+  .BrightcoveExperience {
+    position: absolute;
+    height: 100%;
+  }
+}
+
+#panel-sharing {
+  p {
+    font-size: 23px;
+    font-weight: bold;
+  }
+}
+
+.panel-item {
+  position: absolute;
+  left: 55%;
+  width: 45%;
+  font-size: 18px;
+  line-height: 1.3;
+  float: left;
+  margin: 0;
+  padding: 0;
+
+  .is-rtl & {
+    float: right;
+    margin: 0 2.5% 0 0;
+  }
+}
+
+// TODO: make into a module or helper
+.hero-background {
+  @include position(absolute, 0px 0 0 0px);
+  -webkit-transform: translate3d(0, 0, 0); // prevent box shadow from filter in chrome
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  // Relevant if the browser supports it
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:after {
+    @include position(absolute, 0px 0 0 0px);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    content: " ";
+  }
+}
+
+// metadata box
+.meta {
+  margin-top: 20px;
+  background: #333;
+  padding: 8px;
+  color: #fff;
+
+  p {
+    margin: 8px 0;
+  }
+
+  .thumb {
+    float: right;
+    width: 85px;
+    height: 50px;
+    margin: 0 10px 10px 0;
+
+    .is-rtl & {
+      margin: 0 0 10px 10px;
+    }
+  }
+
+  .title {
+    color: #cac8dd;
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .date {
+    font-weight: bold;
+    font-size: 11px;
+	font-family:arial;
+    span { margin-right: 15px; }
+  }
+
+  .shortdesc {
+    font-size: 13px;
+  }
+}

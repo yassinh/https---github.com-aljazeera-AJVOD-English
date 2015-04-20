@@ -1,0 +1,21 @@
+<!--
+  Always include both the unsubscribe and subscribe links, but do not
+  apply the h-hidden class to the link that matches the current status.
+  So if the user is subscribed to this channel, then add h-hidden to
+  the unsubscribed link.
+
+  The title attribute should include the name of the show the link
+  corresponds to.
+
+  The show page uses the whiteHoverIcon variable.
+-->
+{@if cond="'{hasSubscribeLinks}' != 'false'"}
+  <a href="#" class="h-icon h-icon-subscribe{@if cond="'{whiteHoverIcon}' === 'true'"}-white{/if} h-hidden do-unsubscribe" title="Remove PLAYLIST NAME from 'Your Channel'">Unsubscribe</a>
+  <a href="#" class="h-icon h-icon-subscribe{@if cond="'{whiteHoverIcon}' === 'true'"}-white{/if} do-subscribe" title="Add PLAYLIST NAME to 'Your Channel'">Subscribe</a>
+{/if}
+{@if cond="'{hasPlaylistDeleteLink}' == 'true'"}
+  <a href="#" class="h-icon h-icon-playlist-delete do-playlist-delete" title="Remove PLAYLIST NAME">Remove</a>
+{/if}
+{@if cond="'{hasBigScreenLink}' != 'false'"}
+  <a href="#" class="h-icon h-icon-bigscreen do-big-screen" title="Launch PLAYLIST NAME in Big Screen Mode">Big Screen</a>
+{/if}

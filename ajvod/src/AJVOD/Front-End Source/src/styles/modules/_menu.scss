@@ -1,0 +1,149 @@
+/*
+ * Navigation / search / preferences menu
+ */
+
+// TODO: optimize this selector
+#container > menu {
+  @include position(fixed, 0px 0 0 0);
+  @include layout-container;
+  display: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: $navigation-menu-zindex;
+  width: 100%;
+  height: 93%;
+  color: #fff;
+
+  > div {
+    @include content-container;
+    @include clearfix;
+    margin: 40px auto;
+    width: 82%;
+  }
+
+  .grid {
+    position: relative;
+    top: -5px;
+  }
+
+  .grid-fade-reveal {
+    a {
+      margin: 0;
+    }
+
+    img {
+      -webkit-transform: translateZ(0);
+      left: auto;
+    }
+
+    li.h-drop-in-run {
+      opacity: 0.8 !important;
+
+      &:hover, &.is-selected {
+        opacity: 1 !important;
+
+        img {
+          opacity: 1;
+        }
+      }
+    }
+
+    .title {
+      width: 100%;
+    }
+
+    .your-channel img {
+      width: 55%;
+	  
+    }
+
+	.your-channel a {
+	  background-color: gray;
+    }
+  }
+
+  .close {
+    @include position(absolute, 40px 4% 0 0);
+    display: block;
+    cursor: pointer;
+
+    .is-rtl & {
+      right: auto;
+      left: 4%;
+    }
+  }
+
+  .col-6 {
+    $item-margin: 0.666666666666666%;
+    $item-width: 13%;
+
+    li {
+      width: $item-width;
+      margin: $item-margin;
+      padding-bottom: $item-width;
+    }
+  }
+
+  .col-5 {
+    width: 71.66666666666666%;
+    $item-margin: 1%;
+    $item-width: (100% / 5) - ($item-margin * 2); // 18%
+
+    li {
+      width: $item-width;
+      margin: $item-margin;
+      padding-bottom: $item-width;
+    }
+  }
+
+  .col-4 {
+    $item-margin: 0.75%;
+    $item-width: (100% / 4) - $item-margin * 2;
+    width: 80%;
+
+    li {
+      width: $item-width;
+      margin: $item-margin;
+      padding-bottom: $item-width;
+    }
+  }
+
+  .col-3 {
+    $item-margin: 1%;
+    $item-width: 33.3333333% - ($item-margin * 2);
+    width: 60%;
+    float: left;
+
+    .is-rtl & {
+      float: right;
+    }
+
+    li {
+      width: $item-width;
+      padding-bottom: $item-width;
+      margin: $item-margin;
+    }
+  }
+
+  // Only applied to the regions ul
+  .col-2 {
+    float: right;
+    width: 28.3333333333333333%;
+
+    .is-rtl & {
+      float: left;
+    }
+
+    li {
+      margin: 2.5%; //$item-margin;
+      width: 45%; // $item-width;
+      padding-bottom: 45.6%; // $item-width;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,193 @@
+// The first and last nav items will be pulled out by this amount
+// to account for nav item padding and to line up with everything else.
+$extra-gutter-width: 12px;
+
+// Function to calculate what the padding shoudl be.
+@function item-padding(
+  $top: 15px,
+  $right: 30px,
+  $bottom: 5px,
+  $left: $extra-gutter-width,
+  $rtl: false
+) {
+  $bottom: $bottom - $nav-border-bottom-width;
+
+  @if $rtl {
+    @return $top $left $bottom $right;
+  } @else {
+    @return $top $right $bottom $left;
+  }
+}
+
+
+.nav {
+  @include heading-font($bold: false);
+  background: $nav-background-color;
+
+  .is-rtl & {
+		background:#00317d!important;
+	}
+
+  a, span {
+    cursor: pointer;
+    width: 100%;
+    height: 48px;
+    padding: item-padding($left: $extra-gutter-width, $right: $extra-gutter-width);
+    display: block;
+    font-size: 14px;
+    color: $nav-color;
+
+    &:active {
+      background: none;
+    }
+
+	.is-rtl & {
+		padding: 10px 12px 1px;
+	}
+  }
+
+  ul {
+    @include content-container;
+    @include clearfix;
+    margin: 0 auto;
+
+    .is-rtl & {
+      left: auto;
+
+    }
+  }
+
+  li {
+    position: relative;
+
+    .is-rtl & {
+      float: right;
+      
+    }
+
+    .is-ltr & {
+      float: left;
+      
+    }
+
+    // open & hover states
+    &.open, &:hover {
+      background-color: $nav-hover-color;
+
+      .is-rtl & { border-left: 0; }
+      .is-ltr & { border-right: 0; }
+
+      a, span {
+        color: $nav-hover-text-color;
+        border-color: #3a3a3a;
+
+        
+      }
+    }
+
+    // open/hover states for items with a menu
+    &[data-menu].open, &[data-menu]:hover {
+      a, span {
+        &:after {
+          background-position: 0 -538px !important;
+        }
+      }
+    }
+
+    // For menu items with an arrow
+    &[data-menu] span, &[data-menu] a {
+      .is-ltr & {
+        padding: item-padding($top: 15px, $bottom: 15px, $rtl: false);
+      }
+      .is-rtl & {
+        padding: item-padding($top: 10px, $bottom: 15px, $rtl: true);
+      }
+
+      &:after {
+        @include sprite($default-pos: 0 -465px);
+        position: absolute;
+        top: 30%;
+        margin-top: 5px;
+        width: 9px;
+        height: 8px;
+        content: " ";
+        right: 17px;
+
+        .is-rtl & {
+          right: auto;
+          left: 10px;
+        }
+      }
+    }
+  }
+}
+
+// channel item
+.nav-channel {
+  .is-rtl & {
+    
+  }
+  .is-ltr & {
+    
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    padding: item-padding($top: 12px, $bottom: 12px);
+  }
+}
+
+// Search item
+li.nav-search {
+  .is-ltr & {
+    float: right;
+    border-right: 0;
+  }
+  .is-rtl & {
+    border-left: 0;
+    float: left;
+
+  }
+
+  &:hover, &.open {
+    background-color: transparent;
+
+    span {
+      color: $white-a-dp;
+      border-color: $nav-background-color;
+    }
+  }
+
+  span {
+    padding: 15px 30px 11px 1px;
+    font-weight: normal;
+    color: $link-color;
+	border-bottom: 4px solid #ec6c01;
+
+	&:hover {
+		border-bottom: 4px solid #fff;
+    }
+
+    .is-rtl & {
+      padding-left: 30px;
+      padding-right: 0;
+	  border-bottom: 4px solid #00317d;
+
+	  &:hover {
+		border-bottom: 4px solid #fff;
+	  }
+
+      &:after {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    &:after {
+      margin: -1px 0 0 0 !important;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

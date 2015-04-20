@@ -1,0 +1,17 @@
+{! channel grid !}
+{! Home page !}
+
+<ul class="grid-channels">
+ {#navigation.channel.items}
+   <li class="h-flip">
+     <a href="#">
+       <div class="front">
+         <p class="title">{title}</p>
+       </div>
+       <div class="back">
+         <img src="{thumb}" alt="" />
+       </div>
+     </a>
+   </li>
+ {/navigation.channel.items}
+</ul>

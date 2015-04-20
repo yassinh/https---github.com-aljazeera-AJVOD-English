@@ -1,0 +1,43 @@
+// Unsubscribe bar. This is common to both
+// the edit subscriptions dialog and the
+// unsubscribe dialog
+.unsubscribe {
+  background: black;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    padding: 0 10px;
+    line-height: 3;
+    float: left;
+
+    .is-rtl & {
+      float: right;
+    }
+  }
+
+  menu {
+    padding: 0;
+    margin: 0;
+    float: right;
+
+    .is-rtl & {
+      float: left;
+    }
+  }
+
+  a {
+    float: right;
+    padding: 0 15px;
+    line-height: 3;
+    border-left: 2px solid #2c2c2a;
+    color: #c7cbd7;
+	background: grey;
+
+    &:hover {
+      @include transition(background 0.1s linear);
+      background: grey;
+    }
+  }
+}
+

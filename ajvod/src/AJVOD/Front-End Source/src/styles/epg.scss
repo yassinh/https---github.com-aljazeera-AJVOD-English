@@ -1,0 +1,320 @@
+@import "base";
+@import "modules/episode-preview";
+
+$cell-height: 75px;
+$cell-spacing: 8px;
+$tick-color: #403f3d;
+
+html, body, #container {
+  background: black;
+}
+
+#main {
+  padding-bottom: 50px;
+}
+
+.top, .bottom header {
+	background:  $grey-d-dp;
+	border-bottom:  1px solid $grey-d;
+}
+
+.top {
+  padding: 60px 0 10px 0;
+  overflow: hidden;
+
+  .desc {
+    color: $grey-j;
+    font-size: 16px;
+  }
+}
+
+.bottom {
+  .error {
+    text-align: center;
+    font-size: 26px;
+    color: $orange-a-dp;
+    margin-top: 100px;
+
+    p {
+      margin-top: 15px 0;
+    }
+  }
+}
+
+.h-sticky-last {
+  box-shadow: none;
+}
+
+// Filter form
+.filter {
+  float: right;
+  position: relative;
+  top: 7px;
+
+  select {
+    width: 175px;
+  }
+
+  .is-rtl & {
+    float: left;
+    top: 30px;
+  }
+}
+
+h1 {
+  color: #fff;
+  margin: 0;
+
+  span {
+    font-weight: normal;
+  }
+}
+
+.cell {
+  margin-bottom: $cell-spacing;
+  position: relative;
+  padding: 0 $cell-spacing 0 0;
+  color: #ccc9de;
+  line-height: 1.4;
+
+  .is-rtl & {
+    padding-right: 0;
+    padding-left: $cell-spacing;
+  }
+
+  .tooltip {
+    display: none;
+  }
+
+  &.tiny {
+    padding-bottom: 0;
+
+    .body {
+      border-width: 0;
+
+      .title, .show {
+        display: none;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .title {
+    line-height: 1.2em;
+    max-height: 1.2em * 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+
+  .body {
+    @include transition(background, 0.1s ease-in-out);
+    overflow: hidden;
+    height: 100%;
+    background: #2b292a;
+    /* padding: $cell-spacing; // if this is changed, it must also be changed epg.js */
+    border: 8px solid #2b292a;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+      background: #171516;
+      border-color: #171516;
+    }
+  }
+
+  .show {
+    @include ellipsis;
+    position: absolute;
+    width: 90%;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-top: 3px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  /* &.min-30 { */
+    /* height: $cell-height; */
+  /* } */
+  /* &.min-60 { */
+    /* height: $cell-height * 2 + $cell-spacing; */
+  /* } */
+  /* &.min-90 { */
+    /* height: $cell-height * 3 + ($cell-spacing * 2); */
+  /* } */
+}
+
+.headers {
+  overflow: hidden;
+  border-bottom: 1px solid #5b5a58;
+  position: relative;
+
+  .is-ltr & .h-content {
+    left: -95px;
+  }
+  .is-rtl & .h-content {
+    right: -95px;
+  }
+
+  &:after {
+    @include position(absolute, 0 0 0px 0px);
+    content: " ";
+    height: 1px;
+    width: 100%;
+    background: #2e2d2b;
+
+    .is-rtl & {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .th {
+    display: table-cell;
+    color: $orange-e;
+    text-align: left;
+    font-weight: normal;
+    padding: 15px 0 15px 8px;
+    font-size: 14px;
+
+    .is-rtl & {
+      padding-right: 8px;
+      padding-left: 0;
+      text-align: right;
+    }
+  }
+}
+
+.col {
+  width: 14%;
+
+  &:first-child {
+    width: 95px;
+    min-width: 95px;
+    max-width: 95px;
+  }
+}
+
+// table scoped to #main to avoid conflict with gigya
+
+#main table {
+  position: relative;
+  left: -95px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: $cell-spacing;
+  font-size: 14px;
+
+  .is-rtl & {
+    left: auto;
+    right: -95px;
+  }
+
+  a {
+    color: #968a98;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+#main td {
+  vertical-align: top;
+  padding: 0;
+}
+
+#main td:first-child {
+  .cell {
+    height: $cell-height * 2 + $cell-spacing;
+    color: #d4d4d4;
+    background: transparent;
+    display: table;
+    margin-bottom: $cell-spacing;
+    width: 100%;
+
+    p {
+      margin: 0;
+      padding: 0;
+      display: table-cell;
+      vertical-align: bottom;
+      padding-left: 10px;
+
+      .is-rtl & {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #565553;
+      }
+    }
+
+    &:after {
+      content: " ";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 99999%;
+      border-bottom: 2px solid $tick-color;
+    }
+  }
+
+  .tick {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 5%;
+    border-bottom: 2px solid $tick-color;
+    margin-left: 10px;
+
+    .is-rtl & {
+      left: auto;
+      right: 0;
+    }
+
+    &:nth-child(1) { top: 5%; }
+    &:nth-child(2) { top: 25%; }
+    &:nth-child(3) { top: 45%; width: 12%; }
+    &:nth-child(4) { top: 65%; }
+    &:nth-child(5) { top: 85%; }
+  }
+}
+
+#main table, .headers section {
+  @include fade-in($speed: 0.5s);
+
+  &.is-loaded {
+    @include fade-in-run($speed: 0.5s);
+  }
+}
+
+#main td:last-child {
+  .is-ltr & .cell {
+    padding-right: 0;
+  }
+  .is-rtl & .cell {
+    padding-left: 0;
+  }
+}
+
+
+
+ .your-channel a {
+     background-color: gray;
+	 
+  }

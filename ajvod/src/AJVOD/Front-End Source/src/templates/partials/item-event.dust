@@ -1,0 +1,29 @@
+{!
+  Items that represent events.
+  Used on the `events` page.
+!}
+<div class="item-event" data-video-id="{videoID}">
+  <div class="tooltip">
+    <div class="details">
+      <p class="title">{title}</p>
+      <p class="desc">{description}</p>
+    </div>
+  </div>
+  <a class="thumb" href="#">
+    {@if cond="'{lazyload}' == 'true'"}
+      <img data-src="http://placeimg.com/500/280/any" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+    {:else}
+      <img src="http://placeimg.com/500/280/any" alt="">
+    {/if}
+  </a>
+  <div class="details">
+    <a class="title" href="#">{title}</a>
+    {@if cond="'{hasDescription}' == 'true'"}
+      <p class="desc">{description}</p>
+    {/if}
+  </div>
+  <p class="footer">
+    <a href="#" class="h-icon h-icon-timeline-orange do-time-machine">Timeline</a>
+    {timespan}
+  </p>
+</div>

@@ -1,0 +1,101 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "pageName": "epg",
+  "title": "ALJ EPG Page",
+
+  "times": [
+    { "time": "6:30 AM" },
+    { "time": "7:30 AM" },
+    { "time": "8:30 AM" },
+    { "time": "9:30 AM" },
+    { "time": "10:30 AM" }
+  ],
+
+  "days": [
+    {
+      "date": "Thu, Aug 1",
+      "shows": [
+        { "videoID": 100, "mins": 30, "title": "Video name lorem ipsum long title video name long title video name long title video name long title" },
+        { "videoID": 200, "mins": 90, "title": "Video name lorem ipsum has a longer title" },
+        { "videoID": 300, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 400, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 500, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 600, "mins": 30, "title": "Video name lorem ipsum has a longer title" },
+        { "videoID": 700, "mins": 30, "title": "Video name lorem ipsum has a longer title a longer one" }
+      ]
+    },
+    {
+      "date": "Fri, Aug 2",
+      "shows": [
+        { "videoID": 110, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 210, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 310, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 410, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 510, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 610, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 710, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    },
+    {
+      "date": "Sat, Aug 3",
+      "shows": [
+        { "videoID": 120, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 220, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 320, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 420, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 520, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 620, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 720, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    },
+    {
+      "date": "Sun, Aug 4",
+      "shows": [
+        { "videoID": 130, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 230, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 330, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 430, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 530, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 630, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 730, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    },
+    {
+      "date": "Mon, Aug 5",
+      "shows": [
+        { "videoID": 140, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 240, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 340, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 440, "mins": 60, "title": "Video name lorem ipsum" },
+        { "videoID": 540, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 640, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 740, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    },
+    {
+      "date": "Tue, Aug 6",
+      "shows": [
+        { "videoID": 150, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 250, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 350, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 450, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 550, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 650, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 750, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    },
+    {
+      "date": "Tue, Aug 7",
+      "shows": [
+        { "videoID": 160, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 260, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 360, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 460, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 560, "mins": 90, "title": "Video name lorem ipsum" },
+        { "videoID": 660, "mins": 30, "title": "Video name lorem ipsum" },
+        { "videoID": 760, "mins": 30, "title": "Video name lorem ipsum" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+/*
+ * Player Carousel
+ * A carousel-player module is a carousel that has
+ * a player up top with metadata down below (home page).
+ */
+.carousel-player {
+  @include carousel;
+  overflow: hidden;
+  background: #fff;
+  /* padding: 1px; */
+  padding: 0 !important;
+
+  .player-wrapper {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.15%;
+
+    .BrightcoveExperience {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .details {
+    .title {
+      font-size: 18px;
+      margin: 5px 5px 10px 5px;
+      display: block;
+      position: static;
+      padding: 0;
+      text-align: left;
+      color:  $grey-b;
+      width: auto;
+
+      .is-rtl & {
+        text-align: right;
+		font-family: AlJazeeraArabicBold, "Helvetica Neue", sans-serif;
+      }
+    }
+
+    .show {
+      display: inline-block;
+      margin: 0 5px;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 0;
+      background: none;
+      position: static;
+      color:  $grey-c;
+
+      &:hover {
+        background: #eee;
+        color: white;
+      }
+    }
+  }
+
+  .controls {
+    @include clearfix;
+    @include position(absolute, 0 7px 7px 0);
+    padding: 0;
+
+    .is-rtl & {
+      right: auto;
+      left: 7px;
+    }
+
+    .next-prev {
+      float: right;
+      position: static;
+      width: auto;
+      margin: 0;
+      height: 31px;
+
+      .is-rtl & {
+        float: left;
+      }
+
+      &.run-animation {
+        .next, .prev {
+          @include transition(none);
+        }
+      }
+    }
+
+    .next, .prev {
+      @include transition(none);
+      display: block;
+      float: right;
+      margin: 0 0 0 5px;
+      position: static;
+      border: 1px solid $grey-d;
+      background-color: $grey-p;
+      width: 42px;
+      height: 31px;
+      opacity: 1;
+
+      &.is-disabled {
+        background-color: $grey-q;
+      }
+    }
+
+    .next {
+      @include sprite(
+        $default-pos: -217px -47px,
+        $hover-pos: -217px -82px,
+        $disabled-pos: -217px 6px,
+        $positions-only: true
+      );
+    }
+    .prev {
+      @include sprite(
+        $default-pos: -170px -47px,
+        $hover-pos: -170px -82px,
+        $disabled-pos: -170px 6px,
+        $positions-only: true
+      );
+    }
+
+    .page {
+      float: right;
+      margin: 0 10px 0 0;
+      padding: 0;
+      line-height: 2.5;
+      color: $grey-b;
+
+      .is-rtl & {
+        float: left;
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .carousel-hook {
+    width: 100%;
+    min-height: 0;
+    padding-bottom: 44%;
+
+    ul {
+      margin: 0;
+    }
+
+    li {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .item {
+      float: none !important;
+      margin: 0;
+      background: none;
+      width: auto;
+    }
+  }
+}

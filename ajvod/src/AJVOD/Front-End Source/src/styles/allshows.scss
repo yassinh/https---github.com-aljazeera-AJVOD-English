@@ -1,0 +1,37 @@
+@import "base";
+@import "modules/carousel-advanced-menu";
+@import "modules/heading";
+@import "modules/item-menu";
+
+#container {
+  padding-bottom: 0;
+}
+
+#top {
+  background: $grey-d-dp;
+  border-bottom: 1px solid $grey-d;
+
+  .h-content {
+    padding: 55px 0 35px 0;
+  }
+
+  h1 {
+    margin: 0 0 10px 0;
+	color: $white-a-dp;
+	background-color: $grey-d-dp;
+  }
+
+  p {
+    width: 80%;
+    line-height: 1.3;
+    font-size: 18px;
+    margin: 0;
+	color: $white-a-dp;
+  }
+}
+
+.carousel-advanced-menu {
+  &.is-first-child {
+    border-top: 1px solid #fff;
+  }
+}

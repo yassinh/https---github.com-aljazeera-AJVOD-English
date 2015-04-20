@@ -1,0 +1,16 @@
+{! On the home page, only the help and search <li> elements should have a [data-menu] attribute. !}
+<nav class="nav">
+  <ul>
+    {@if cond="'{pageName}' !== 'home'"}
+      <li class="nav-channel" data-menu="channel"><span>Al Jazeera English</span></li>
+      {@if cond="'{pageName}' !== 'yourchannel'"}
+      <li data-menu="topics"><span>Topics</span></li>
+      <li data-menu="shows"><span>Shows</span></li>
+      <li class="nav-news" data-menu="news"><span>News Clips</span></li>
+      <li><a href="#">Time Machine</a></li>
+      <li><a href="#">Watch Live</a></li>
+      {/if}
+    {/if}
+    <li class="nav-search"><span class="h-icon h-icon-search-med">Search</span></li>
+  </ul>
+</nav>

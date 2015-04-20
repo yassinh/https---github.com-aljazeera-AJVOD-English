@@ -1,0 +1,78 @@
+/*
+ * Layout/utility mixins
+ */
+@mixin layout-container() {
+  min-width: $page-width-min;
+  max-width: 100%;
+}
+
+@mixin content-container() {
+  width: 100% - $page-gutter;
+  max-width: $page-width-max;
+  margin: 0 auto;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin rtlfloat($dir) {
+  float: $dir;
+
+  .is-rtl & {
+    @if $dir == 'left' {
+      float: right;
+    } @else {
+      float: left;
+    }
+  }
+}
+
+// Use a different font for headings on the Arabic version
+@mixin heading-font($bold: true) {
+  .is-rtl & {
+    line-height: normal;
+
+    @if $bold {
+      font-family: $heading-font-family-arabic-bold;
+      font-weight: normal;
+    } @else {
+      font-family: $heading-font-family-arabic-regular;
+    }
+  }
+}
+
+// Opacity mixin.
+// This uses the opacity property if the browser supports it, and otherwise
+// falls back to using visibility. We aren't using IE filters here because
+// it remove antialiasing from text.
+@mixin opacity($property) {
+  html.opacity & {
+    opacity: $property;
+  }
+  html.no-opacity & {
+    @if $property == 0 {
+      visibility: hidden;
+    } @else {
+      visibility: visible;
+    }
+  }
+}
+
+/*
+ * Fade in via opacity
+ */
+@mixin fade-in($speed: 0.1s, $opacity: 0, $properties: opacity) {
+  @include transition($properties $speed ease-in-out);
+  @include opacity($opacity);
+}
+
+@mixin fade-in-run($speed: 0.1s, $properties: opacity) {
+  @include fade-in(
+    $speed: $speed,
+    $opacity: 1,
+    $properties: $properties
+  );
+}

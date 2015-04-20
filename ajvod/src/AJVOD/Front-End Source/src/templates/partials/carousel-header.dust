@@ -1,0 +1,44 @@
+{!
+  Header for carousels
+
+  If you update this file, please also check
+  templates/yourchannel/recommendations.html
+!}
+
+<header class="heading">
+  <div class="h-content">
+    <div class="links">
+      {!
+        hasLinks comes from the page that implements the carousel,
+        not the carousel partial itself.
+      !}
+      {@if cond="'{hasLinks}' !== 'false'"}
+        {@if cond="'{hasSort}' !== 'false'"}
+          <form action="#" method="post">
+            <select>
+              <option value="date">Most Recent</option>
+              <option value="views">Popular</option>
+            </select>
+          </form>
+        {/if}
+
+        <nav>
+          {>"partials/playlist-links"/}
+
+          {@if cond="'{hasAllShowsLink}' != 'false'"}
+            <a href="#" class="h-icon h-icon-grid">All Shows</a>
+          {/if}
+        </nav>
+      {/if}
+    </div>
+
+    {!  This is used on the your channel page !}
+    {?channelName}
+      <p class="channel">
+        <a href="#">{channelName}</a>
+      </p>
+    {/channelName}
+
+    <p class="title">{title}</p>
+  </div>
+</header>

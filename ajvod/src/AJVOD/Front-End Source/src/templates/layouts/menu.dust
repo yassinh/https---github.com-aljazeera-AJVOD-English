@@ -1,0 +1,11 @@
+{!
+  Base menu layout. Variables that can be passed to this:
+!}
+<!-- BEGIN menu for {for} -->
+<menu data-for="{for}"{@if cond="'{hasRegions}' == 'true'"} class="has-regions"{/if}>
+  <div class="body">
+    <a class="close h-icon-close" href="#"></a>
+    {+body/}
+  </div>
+</menu>
+<!-- END menu for {for} -->

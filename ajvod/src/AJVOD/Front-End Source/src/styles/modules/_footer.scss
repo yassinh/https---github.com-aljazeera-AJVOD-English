@@ -1,0 +1,25 @@
+#footer {
+  background: $footer-background-color;
+  color: $footer-text-color;
+  padding: 10px 0;
+  font-size: 14px;
+  height: $footer-height;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  p {
+    @include rtlfloat(right);
+    margin: 0;
+  }
+
+  a {
+    color: $footer-link-color;
+    margin-right: 25px;
+
+    .is-rtl & {
+      margin-right: 0;
+      margin-left: 25px;
+    }
+  }
+}

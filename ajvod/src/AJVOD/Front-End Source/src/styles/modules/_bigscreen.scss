@@ -1,0 +1,134 @@
+// Styles relating to Big Screen mode
+
+// Dialog container
+.ui-dialog.big-screen {
+  background: #171516;
+
+  .ui-dialog-content {
+    background: none;
+    box-shadow: none;
+  }
+
+  .h-icon-close {
+    top: 2.5%;
+    right: 2.5%;
+  }
+}
+
+// Player container
+.bs-player {
+  @include transition(
+    height 0.1s linear,
+    width 0.1s linear
+  );
+  margin: 0 auto;
+  padding: 4.5% 8%;
+  position: relative;
+
+  // BC adds this element in IE
+  span {
+    height: 100%;
+  }
+}
+
+// Carousel container
+.bs-carousel {
+  @include position(absolute, 0 0 0px 0px);
+  @include transition(background 0.3s linear);
+  width: 100%;
+  min-width: $page-width-min;
+  /* max-height: 35%; */
+  background: #3f3e3c;
+
+  .h-content {
+    max-width: 1000px;
+  }
+
+  .is-contracted & {
+    background: #262424;
+  }
+
+  .carousel {
+    @include transition(opacity 0.2s linear);
+    @include opacity(1);
+    @include pagination-circles(-222px -180px, -206px -180px);
+    @include dark-carousel-arrows;
+
+    a {
+      color: #FFF;
+    }
+
+    footer {
+      ul {
+        margin-bottom: 0;
+        padding-bottom: 20px;
+      }
+    }
+
+    .body {
+      border-top: none;
+      padding: 20px 0 0 0;
+    }
+
+    .is-contracted & {
+      @include opacity(0);
+    }
+  }
+}
+
+
+// Tab container
+.bs-tab {
+  @include transition(border-color 0.1s linear);
+  border-bottom: 10px solid #3f3e3c;
+  background: #171516;
+  position: relative;
+
+  a {
+    outline: none;
+  }
+
+  .is-contracted & {
+    border-bottom-color: #262424;
+
+    &.is-hover {
+      border-color: #3f3e3c
+    }
+  }
+
+  a {
+    @include transition(background 0.1s linear, color 0.1s linear);
+    position: relative;
+    z-index: $timemachine-tab-zindex;
+    background: #3f3e3c;
+    color: $grey-g;
+    display: inline-block;
+    padding: 14px 20px;
+    font-size: 14px;
+    max-width: 230px;
+
+    .is-contracted & {
+      background: #262424;
+      color: #70707a;
+
+      &:hover {
+        background: #3f3e3c;
+        color: $grey-g;
+      }
+    }
+  }
+
+  span {
+    display: block;
+  }
+
+  .duration {
+    font-size: 11px;
+    color: #a3a3a3;
+    padding-top: 5px;
+
+    .is-contracted & {
+      color: #5d5d5d;
+    }
+  }
+}

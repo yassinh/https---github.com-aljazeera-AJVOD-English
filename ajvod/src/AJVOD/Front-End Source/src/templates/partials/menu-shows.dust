@@ -1,0 +1,9 @@
+{>"layouts/menu" for="shows"/}
+
+{<body}
+  <ul class="grid grid-highlight col-5">
+   {#navigation.shows.items}
+      {>"partials/navigation-item-highlight"/}
+   {/navigation.shows.items}
+  </ul>
+{/body}

@@ -1,0 +1,23 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "pageName": "allshows",
+  "title": "ALJ All Shows Page",
+
+  "carousels": [
+    {
+      "title": "Discussion",
+      "items": [
+        { "id": 100001, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/correspondent.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" },
+        { "id": 100002, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/documentaries.jpg", "title": "The title is one line", "description": "test description test test description test description test description test description" },
+        { "id": 100003, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/faultlines.jpg", "title": "This title is one line", "description": "test description test test description test description test description test description" },
+        { "id": 100004, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/frostInterview.jpg", "title": "This title is three lines this title is three lines this title is three", "description": "test description test test description test description test description test description" },
+        { "id": 100005, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/frostOverTheWorld.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" },
+        { "id": 100006, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/insideStory.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" },
+        { "id": 100007, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/insideStoryAmericas.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" },
+        { "id": 100008, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/insideStoryUS2012.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" },
+        { "id": 100009, "channelID": "123", "thumb": "http://psdev.brightcove.com/aljazeera/placeholders/shows/insideSyria.jpg", "title": "The quick brown fox jumped over the lazy dog.", "description": "test description test test description test description test description test description" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+// All styles for playlists and subscriptions
+
+@import "modules/playlists/common"; // playlists + subscriptions
+@import "modules/playlists/dialog-add";
+@import "modules/playlists/dialog-edit";
+@import "modules/playlists/dialog-create";
+
+// Playlist add/remove icons
+.do-playlist-add,
+.do-playlist-remove {
+  @include position(absolute, 8px 8px 0 0);
+  @include transition(opacity $item-transition-speed linear);
+  @include opacity(0);
+  z-index: 5;
+  text-indent: -9999px;
+}
+.do-playlist-add {
+  width: 31px;
+}
+.do-playlist-remove {
+  top: 10px;
+  right: 10px;
+  width: 21px;
+}
+
+// Manage subscriptions dialog
+#manage-subscriptions-dialog {
+  overflow: auto; // ALJ-522 on FF 24
+
+  .max {
+    background: #91172b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+}

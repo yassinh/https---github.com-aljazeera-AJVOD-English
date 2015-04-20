@@ -1,0 +1,19 @@
+{>"layouts/page"/}
+
+{! script overrides !}
+{<scripts}
+  <script src="scripts/page-error.js"></script>
+{/scripts}
+
+{! style overrides !}
+{<styles}
+  <link rel="stylesheet" href="styles/error.css">
+{/styles}
+
+{! main content !}
+{<main}
+  <div id="body" class="h-content">
+    <h1>An error occurred</h1>
+    <p>Some description here</p>
+  </div>
+{/main}

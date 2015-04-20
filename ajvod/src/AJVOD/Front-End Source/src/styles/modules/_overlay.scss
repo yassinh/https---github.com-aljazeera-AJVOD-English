@@ -1,0 +1,22 @@
+/*
+ * Menu overlay
+ */
+
+#overlay {
+  @include position(fixed, 0px 0 0 0px);
+  display: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  z-index: $navigation-overlay-zindex;
+  background: rgba(37, 35, 32, 0.97);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  // backgroundisze is just as good as rgba, which modernizr
+  // doesn't add a class for
+  .no-backgroundsize & {
+    background-image: url(../images/background.png);
+  }
+}

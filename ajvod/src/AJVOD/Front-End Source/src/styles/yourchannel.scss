@@ -1,0 +1,293 @@
+@import "base";
+@import "modules/carousel";
+@import "modules/heading";
+@import "modules/video-metadata";
+@import "modules/bigscreen";
+@import "modules/item";
+
+.carousel .heading nav {
+  position: static;
+}
+
+.ui-tabs-panel {
+  display: none;
+}
+
+html, body {
+  background-color: #E8E8E8;
+}
+ 
+// Top half
+#top {
+  background-color: #3f3e3c;
+  color: #fff;
+  position: relative;
+
+  // place above background
+  .h-content {
+    z-index: 1;
+  }
+
+  h1 {
+    color: #fff;
+    margin: 50px 0 10px 0;
+  }
+
+  // Change arrow images
+  .is-ltr & .carousel {
+    @include dark-carousel-arrows;
+  }
+
+  .background {
+    @include position(absolute, 0px 0 0 0px);
+    -webkit-transform: translate3d(0, 0, 0); // prevent box shadow from filter in chrome
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    // Relevant if the browser supports it
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:after {
+      @include position(absolute, 0px 0 0 0px);
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      content: " ";
+    }
+  }
+
+  .carousel {
+    @include dark-pagination-circles;
+    padding-bottom: 20px;
+
+	li {
+		background-color: transparent !important;
+	}
+
+    .heading {
+      background-color: transparent;
+      border-color: rgba(28, 27, 26, 0.72);
+
+      .title {
+        color: #fff;
+        border-color: rgba(28, 27, 26, 0.72);
+      }
+    }
+
+    .body {
+      border-color: rgba(255, 255, 255, 0.08);
+	  background-color: transparent !important;
+    }
+
+    footer {
+      min-height: 15px;
+
+	  ul 
+	  { background-color: transparent !important}
+    }
+  }
+}
+
+// recommendations container
+#recommendations {
+  min-height: 100px;
+  position: relative;
+
+  .spinner {
+    margin-top: -40px;
+  }
+}
+
+// Bottom half w/ tabs
+
+.ui-tabs {
+  margin-top: -39px;
+
+  h1 {
+    font-size: 23px;
+    margin-bottom: 0;
+	color: #FFF;
+  }
+
+  .ui-tabs-anchor {
+    max-height: 39px;
+  }
+
+  .ui-tabs-nav {
+    li {
+      margin-right: 5px;
+
+      .is-rtl & {
+        margin-right: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .manage-links {
+    @include rtlfloat(right);
+    margin-top: 25px;
+
+    a {
+      display: inline-block;
+      padding: 7px 10px;
+      background-color: #31302e;
+      border: 1px solid #2c2a2b;
+      font-size: 12px;
+      color:  $grey-d;
+      margin: 0 0 0 15px;
+
+      &:hover {
+        background-color: darken(#31302e, 8%);
+      }
+
+      &:after {
+        position: relative;
+        top: 1px;
+      }
+
+      .is-rtl & {
+        margin: 0 15px 0 0;
+      }
+    }
+  }
+
+  .h-icon-help {
+    margin: 0 10px;
+  }
+
+  .carousel {
+    background: #eee;
+
+    .title {
+      padding-top: 0;
+    }
+
+    .body.empty {
+      background: #f5f5f5;
+      border: 1px solid #dcdee0;
+      text-align: center;
+      padding: 0;
+      margin-top: 20px;
+
+      p {
+        margin: 0;
+        padding: 50px 0;
+        color: #b5b5b5;
+        font-weight: bold;
+        font-style: italic;
+      }
+    }
+
+    footer ul {
+      margin: 0;
+      padding: 20px 0;
+    }
+  }
+}
+
+// Playlists tab
+#tab-playlists {
+  .heading .h-content {
+    padding-top: 25px;
+  }
+}
+
+// styles for unfinished videos tab
+#tab-unfinished {
+  .top {
+   
+    border-bottom: 1px solid $grey-d;
+
+    .desc {
+      font-size: 16px;
+      line-height: 1.3;
+      width: 65%; // this should be the same as the first large image in the grid below
+      margin-top: 10px;
+    }
+  }
+
+  .bottom {
+    border-top: 1px solid #fff;
+    padding-bottom: 15px;
+    background: $grey-c-dp;
+  }
+
+  .item {
+    @include item;
+    @include item-hover-state;
+  }
+
+  .grid {
+    $item-margin: 1%;
+    $width: 33.3333333333333333%;
+    width: 102%;
+    margin-left: -$item-margin;
+
+    .is-rtl & {
+      margin-left: 0;
+      margin-right: -$item-margin;
+    }
+
+    .details {
+      padding: 5px;
+      padding-bottom: 23%;
+
+      .desc {
+        font-size: 14px;
+        margin: 10px 0;
+        line-height: 1.3;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    li.first-child .item {
+      height: 100%;
+    }
+
+    li {
+      margin: $item-margin;
+      width: $width - ($item-margin * 2);
+      background: #fff;
+
+      &.nth-child-4 {
+        clear: both;
+      }
+
+      &.first-child {
+        width: ($width * 2) - ($item-margin * 2);
+
+        .details {
+          .title {
+            font-size: 16px;
+
+          }
+
+
+        }
+      }
+    }
+
+    // Large item to the right
+    &.right {
+      .first-child {
+        float: right;
+      }
+    }
+  }
+}
+
+// No subscriptions/playlists blocks
+.no-playlists {
+  font-size: 16px;
+
+  p {
+    width: 64%;
+  }
+}

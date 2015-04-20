@@ -1,0 +1,194 @@
+// *****************************************************************
+// Base carousel styles from which all others inherit
+// *****************************************************************
+
+@mixin item-float($value: "left", $important: false) {
+  @if($important) {
+    $value: $value + !important;
+  }
+
+  .carousel-hook {
+    li, .item {
+      float: $value;
+    }
+  }
+}
+
+/*
+ * Mixin for creating the pagination circle background positions
+ * TODO: refactor out the !important
+ */
+@mixin pagination-circles(
+  $default: -173px -180px,
+  $active: -206px -180px
+) {
+  footer {
+    a {
+      @include sprite($image-only: true);
+      background-position: $default !important; 
+    }
+    .is-active a {
+      background-position: $active !important;
+    }
+  }
+}
+
+/*
+ * Use this mixin if you want pagination circles that are suitable
+ * for dark backgrounds (channel, your channel)
+ */
+@mixin dark-pagination-circles {
+  @include pagination-circles(-190px -180px, -206px -180px);
+}
+
+/*
+ * Use this mixin to style the carousel arrows darker.
+ * Big screen, your channel recommended carousel
+ */
+@mixin dark-carousel-arrows {
+  .prev.is-disabled { background-position: -418px 0; }
+  .next.is-disabled { background-position: -450px 0; }
+}
+
+/*
+ * Carousel mixin
+ */
+@mixin carousel {
+  $arrow-width: 29px;
+  $arrow-height: 44px;
+  position: relative;
+  @include pagination-circles;
+
+  .item {
+    // Without the width then items with a one line title
+    // will throw off the width of the entire thing.
+    width: 92%;
+  }
+
+  // next/previous movement buttons
+  .next-prev {
+    width: 100%;
+    max-width: $page-width-max;
+    height: $arrow-height;
+    position: absolute;
+    top: 50%;
+    margin-top: -($arrow-height / 2);
+
+    &.run-animation {
+      .prev, .next {
+        @include fade-in-run($speed: 0.7s);
+      }
+    }
+  }
+  .prev, .next {
+    @include fade-in($speed: 0.7s);
+    position: absolute;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: $arrow-width;
+    height: $arrow-height;
+  }
+  .prev {
+    left: $carousel-arrow-offset;
+    right: auto;
+
+    @include sprite(
+      $default-pos: -310px -140px,
+      $hover-pos: -310px -70px,
+      $disabled-pos: -310px 0
+    );
+  }
+  .next {
+    left: auto;
+    right: $carousel-arrow-offset;
+
+    @include sprite(
+      $default-pos: -380px -140px,
+      $hover-pos: -380px -70px,
+      $disabled-pos: -380px 0
+    );
+  }
+
+  // Container of the carousel.
+  .body {
+    padding-top: $carousel-margin-top;
+	background-color: $grey-d-dp;
+  }
+
+  // JS hook
+  .carousel-hook {
+    position: relative;
+    overflow: hidden;
+
+    ul {
+      @include clearfix;
+
+      // JS will do this on other browsers
+      &.lt-ie9 {
+        position: absolute;
+      }
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+	  background-color: $grey-d-dp;
+    }
+  }
+
+  // pagination circles
+  footer {
+    text-align: center;
+
+    a {
+      width: 13px;
+      height: 13px;
+      display: block;
+    }
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul {
+      padding: 25px 0;
+	  background-color: $grey-d-dp;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 2px;
+    }
+  }
+
+  // RTL/LTR floating
+  html.is-rtl & { @include item-float(right); }
+  html.is-ltr & { @include item-float(left); }
+  &.is-rtl { @include item-float(right, true); }
+  &.is-ltr { @include item-float(left, true); }
+
+  // Allow combo RTL/LTR <li>'s inside a single carousel
+  .carousel-hook li[dir="rtl"], &[dir="rtl"] {
+    text-align: right;
+
+    .footer .h-icon {
+      float: left !important;
+    }
+  }
+}
+
+/*
+ * This class extends the base carousel and adds a default hover state.
+ */
+@mixin carousel-hover {
+  .item {
+    @include item-hover-state;
+  }
+}

@@ -1,0 +1,38 @@
+<!--
+  BEGIN small carousel
+  data-query - the query JSON string
+  data-id - the ID of the gigya subscription or empty string
+-->
+<section class="carousel" data-carousel-id="{index}" data-query="{query}" data-id="{id}">
+  {>"partials/carousel-header"/}
+
+  <div class="body">
+    <div class="h-content">
+      <div class="next-prev">
+        <a class="prev"></a>
+        <a class="next"></a>
+      </div>
+
+      <div class="carousel-hook">
+        <!--
+          width of the ul is (number_of_items / num_items_per_page) * 100)
+        -->
+        <ul style="width: {@eval script="({items.length} / 4.5) * 100"/}%;">
+          {#items}
+            <!--
+              Width of each li is 100 / number_of items
+            -->
+            <li data-index="{$idx}" data-date="{date}" data-views="{views}" style="width: {@eval script="100 / {$len}"/}%;">
+              {>"partials/item" lazyload="true"/}
+            </li>
+          {/items}
+        </ul>
+      </div> <!-- end carousel-hook -->
+    </div> <!-- end h-content -->
+  </div> <!-- end .body -->
+
+  <footer>
+    <ul>{! pagination placeholder !}</ul>
+  </footer>
+</section>
+<!-- END small carousel -->
