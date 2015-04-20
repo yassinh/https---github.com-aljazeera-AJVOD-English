@@ -1,6 +1,0 @@
-<li>
-  <a href="#">
-    <img src="{thumb}" alt="{title}">
-    <p class="title">{title}</p>
-  </a>
-</li>

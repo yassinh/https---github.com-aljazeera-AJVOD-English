@@ -1,9 +1,0 @@
-/*
- * Fade in helpers
- */
-.h-fade-in {
-  @include fade-in($speed: 0.5s, $opacity: 0);
-}
-.h-fade-in-run {
-  @include fade-in-run($speed: 0.5s);
-}

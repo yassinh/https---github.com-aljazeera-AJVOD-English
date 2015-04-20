@@ -1,6 +1,0 @@
-<footer id="footer">
-  <div class="h-content">
-    <p>&copy; {localization.footer_copyright|s}</p>
-    <a target="_blank" href="#">{localization.footer_feedback}</a>
-  </div>
-</footer>
